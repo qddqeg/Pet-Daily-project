@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="main">
+    
+    <select id="selectRecentNews" resultType="per.main.imgVO" parameterType="String">
+    	select * from img ${sql}
+    </select>
+    
+    <select id="selectView" resultType="per.main.imgVO" parameterType="String" > 
+    	select * from img where pid='${pid}'
+    </select>
+    
+    <select id="imgCommentList" resultType="per.main.img_commentVO" parameterType="String">
+    	select * from img_comment where pid='${pid}'
+    </select>
+    
+     <insert id="insert_imgComment" parameterType="per.main.img_commentVO">
+    	insert into img_comment(pid,userID,comment) values('${pid}','${userID}','${comment}')
+    </insert>
+</mapper>
+

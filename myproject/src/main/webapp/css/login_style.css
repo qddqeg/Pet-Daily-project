@@ -1,0 +1,347 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  background-color:  rgb(97, 172, 172);
+  font-family: "Big Shoulders Stencil Text", cursive;
+  height: 1000px;
+}
+hr{
+  border: none;
+  clear: both;
+}
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.logo {
+	display: block;
+	text-align: center;
+	
+	position: absolute;
+	top:0;
+	right: 0;
+	
+	
+	
+	
+}
+
+.logo a {
+  font-size: 150px;
+  color: beige;
+  
+}
+
+.logo a i{
+  font-size: 150px;
+  color: tomato;
+}
+
+
+
+
+
+
+
+
+
+input:-ms-input-placeholder {color:#a8a8a8;}
+input::-webkit-input-placeholder {color:#a8a8a8;}
+input:-moz-placeholder {color:#a8a8a8;}
+
+/* 로그인 화면 */
+.login_screen form{
+    text-align: center;
+}
+/* colors */
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  margin: 0;
+  padding: 2.25em;
+  box-sizing: border-box;
+  border: solid 1px #ddd;
+  border-radius: 0.5em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+form .svgContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1em;
+  border-radius: 50%;
+  background: none;
+  border: solid 2.5px #3a5e77;
+  overflow: hidden;
+  pointer-events: none;
+}
+form .svgContainer div {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 100%;
+}
+form .svgContainer .mySVG {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+form .inputGroup {
+  margin: 0 0 2em;
+  padding: 0;
+  position: relative;
+}
+form .inputGroup:last-of-type {
+  margin-bottom: 0;
+}
+form label {
+  margin: 0 0 12px;
+  display: block;
+  font-size: 1.25em;
+  color: #217093;
+  font-weight: 700;
+  font-family: inherit;
+}
+form input[type=email],
+form input[type=text],
+form input[type=password] {
+  display: block;
+  margin: 0;
+  padding: 0 1em 0;
+  background-color: #f3fafd;
+  border: solid 2px #217093;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 65px;
+  font-size: 1.55em;
+  color: #353538;
+  font-weight: 600;
+  font-family: inherit;
+  transition: box-shadow 0.2s linear, border-color 0.25s ease-out;
+}
+form input[type=email]:focus,
+form input[type=text]:focus,
+form input[type=password]:focus {
+  outline: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border: solid 2px #4eb8dd;
+}
+form input[type=email],
+form input[type=text] {
+  padding: 14px 1em 0px;
+}
+form button {
+  display: block;
+  margin: 0;
+  padding: 0.65em 1em 1em;
+  background-color: #4eb8dd;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 65px;
+  font-size: 1.55em;
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background-color 0.2s ease-out;
+}
+form button:hover, form button:active {
+  background-color: #217093;
+}
+form .inputGroup1 .helper {
+  position: absolute;
+  z-index: 1;
+  font-family: inherit;
+}
+form .inputGroup1 .helper1 {
+  top: 0;
+  left: 0;
+  transform: translate(1.4em, 2.6em) scale(1);
+  transform-origin: 0 0;
+  color: #217093;
+  font-size: 1.25em;
+  font-weight: 400;
+  opacity: 0.65;
+  pointer-events: none;
+  transition: transform 0.2s ease-out, opacity 0.2s linear;
+}
+form .inputGroup1.focusWithText .helper {
+  /*input[type='email']:focus + .helper {*/
+  transform: translate(1.4em, 2em) scale(0.65);
+  opacity: 1;
+}
+
+.login_btn input{
+	color:white;
+	font-size: 25px;
+	width:325px;
+	height:50px;
+	border:none;
+	background-color: #217093;
+	display: block;
+}
+/* 사이드 메뉴바  */
+nav {
+    overflow: hidden;
+    position: relative;
+    transform: translateX(-300px);
+    height: 100%;
+    width: 400px;
+    transition: all 800ms cubic-bezier(.8, 0, .33, 1);
+    border-radius: 0% 0% 100% 50%;
+}
+
+nav.nav-open {
+    transform: translateX(0px);
+    border-radius: 0% 0% 0% 0%;
+   background: rgba(255, 255, 255, 0.6);
+}
+
+nav .menu-btn {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    padding: 0;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+nav .menu-btn .line {
+    padding: 0;
+    width: 30px;
+    background: #fff;
+    height: 2px;
+    margin: 5px 0;
+    transition: all 700ms cubic-bezier(.9, 0, .33, 1);
+}
+
+nav .menu-btn .line.line--1 {
+    width: 30px;
+    transform: rotate(0) translateY(0);
+}
+
+nav .menu-btn .line.line--1.line-cross {
+    width: 30px;
+    transform: rotate(45deg) translateY(10px);
+   background: rgba(0,0,0,0.6);
+}
+
+nav .menu-btn .line.line--2 {
+    width: 28px;
+    transform: translateX(0);
+}
+
+nav .menu-btn .line.line--2.line-fade-out {
+    width: 28px;
+    transform: translate(30px);
+    opacity: 0;
+}
+
+nav .menu-btn .line.line--3 {
+    width: 20px;
+    transform: rotate(0) translateY(0);
+}
+
+nav .menu-btn .line.line--3.line-cross {
+    width: 30px;
+    transform: rotate(-45deg) translateY(-10px);
+   background: rgba(0,0,0,0.6);
+}
+
+nav .nav-links {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 900ms cubic-bezier(.9, 0, .33, 1);
+}
+
+nav .nav-links.fade-in {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+nav .nav-links .link {
+    margin: 20px 0;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: rgba(0,0,0,0.9);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    transition: all 300ms cubic-bezier(.9, 0, .33, 1);
+}
+
+nav .nav-links .link:hover {
+    color: rgba(0, 0, 0, .5);
+}
+
+
+.inform{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.support{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  display: flex;
+}
+a{
+  margin: 0 20px;
+  color: #fff;
+  font-size: 2rem;
+  transition: all 400ms ease;
+}
+
+a:hover{
+  color: #222;
+}
+/* 회원가입 버튼 */
+.signUp_btn{
+	color:white;
+	font-size: 25px;
+	width:50%;
+	border: 1px solid blue;
+	height:50px;
+	border:none;
+	background-color: #217093;
+	display: block;
+	float: left;
+	
+	
+	
+} 

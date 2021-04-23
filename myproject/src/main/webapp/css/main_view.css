@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding:0;
+  background-color:  rgb(155, 146, 144);
+  font-family: "Big Shoulders Stencil Text", cursive;
+}
+hr{
+  border: none;
+  clear: both;
+}
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.header {
+	padding-top: 10px;
+	width:100%;
+	height:150px;
+	background-color: rgb(85, 81, 81);
+	color: ivory;
+}
+.header h1{
+	font-size:50px;
+	line-height:80px;
+	text-align: center;
+}
+
+.pet_img img{
+	width: 70%;
+	height:100%;
+	border-bottom-right-radius:20%;
+	border-top-right-radius:20%;
+	
+}
+
+.Information{
+	background-color:ivory;
+	float: right;
+	width: 25%;
+	height: 200px;
+	box-shadow: -2px 2px 5px black;
+	border-radius: 50%;
+	position: relative;
+	bottom: 200px;
+	right: 43px;
+	text-align: center;
+	
+}
+.Information h1{
+	position: relative;
+	top: 30px;
+}
+.Information p{
+	position: relative;
+	top: 30px;
+	font-size: 20px;
+}
+.board {
+	width: 90%;
+	margin: 0 auto;
+/* 	background-color: rgb(202, 201, 192); */
+	background-color: ivory;
+	position: relative;
+	bottom: 200px;
+	border-radius: 20%;
+	text-align: center;
+	
+}
+.board table{
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
+	border-collapse: collapse;
+	line-height: 30px;
+}
+.board table th{
+	color:ivory;
+	 background-color:rgb(85, 81, 81);
+}
+textarea{
+width: 60%;	
+
+}
+.commet_btn input{
+ background-color:rgb(85, 81, 81); 
+ color:ivory;
+ width: 10%;
+ height: 40px;
+ border-radius: 20%;
+}
+.commet_btn input:hover{
+	 background-color:ivory; 
+ 	color:rgb(85, 81, 81);
+}

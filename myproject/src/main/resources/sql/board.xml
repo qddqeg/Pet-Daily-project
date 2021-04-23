@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+<!--     <sql id="includeBoard"> -->
+<!--         WHERE BRDDELETEFLAG='N' AND TBG.BGDELETEFLAG='N' -->
+<!--         <if test="bgno!=null and bgno!=''"> -->
+<!--             AND TB.BGNO=#{bgno} -->
+<!--         </if>   -->
+<!--         <if test="searchKeyword!=null and searchKeyword!='' and searchType!=''"> -->
+<!--             <foreach item="item" index="index" collection="searchTypeArr" separator=" OR " open="AND (" close=")"> -->
+<!--                  ${item} LIKE CONCAT('%', #{searchKeyword},'%' ) -->
+<!--             </foreach> -->
+<!--         </if>                -->
+<!--     </sql> -->
+
+    <select id="selectBoardCount" resultType="Integer" parameterType="per.board.BoardSearchVO">
+       Select count(num.id) as count 
+				   from (Select @rownum:=@rownum+1 as num , n.* 
+				        from(select *
+				               From notice
+				 			  where title like '%%'
+						      order by regdate desc)n
+				         Where (@rownum:=0)=0) num 
+         
+    </select> 
+    
+    <select id="selectBoardList" resultType="per.board.BoardVO" parameterType="per.board.BoardSearchVO">
+        	 
+          Select * from(Select @rownum:=@rownum+1 as num , n.*
+				                  from (select * from notice 
+								  where ${searchType} like '%${searchKeyword}%' 
+					                    order by regdate desc)n,
+					                    (select @rownum:=0)v)num      
+<!--          <include refid="includeBoard"/> -->
+         <if test="rowStart != null">
+             LIMIT ${rowStart-1}, 10
+         </if>
+    </select> 
+
+  <insert id="insertContent" parameterType="per.board.BoardVO" >
+        <selectKey resultType="String" keyProperty="ID" order="BEFORE">
+            SELECT IFNULL(MAX(ID),0)+1 FROM notice;
+        </selectKey>
+    
+        INSERT INTO notice(ID, title, writer_id, content)
+        VALUES (#{bgno}, #{brdno}, #{brdtitle}, #{userno}, #{brdmemo}, #{brdnotice}, NOW(), 'N', NOW(), #{userno} )
+    </insert>
+    
+    <insert id="insertFile" parameterType="per.common.FileVO" >
+        INSERT INTO TBL_BOARDFILE (BRDNO, FILENAME, REALNAME, FILESIZE)
+        VALUES (#{parentPK}, #{filename}, #{realname}, #{filesize})
+    </insert>
+    
+    <select id="selectDetail" resultType="per.board.BoardVO" parameterType="per.board.CommentVO">
+         SELECT * FROM notice WHERE ID = #{board_id}
+    </select> 
+    
+    <insert id="insertComment" parameterType="per.board.CommentVO">
+    	insert into comment(mid,writer,comment) values(${mid},'${writer}','${comment}')
+    </insert>
+    
+    <select id="selectCommentList" parameterType="String" resultType="per.board.CommentVO">
+    	select * from comment where mid=${board_id} 
+    </select>
+    
+    <delete id="DeleteBoardDetail" parameterType="String">
+    	delete from notice where id=${board_id}
+    </delete>
+    
+    <delete id="DeleteComment" parameterType="String">
+    	delete from comment where id =${comment_id}
+    </delete>
+</mapper>
+
